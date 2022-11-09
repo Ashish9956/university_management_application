@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Faculty Dashboard</title>
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min
+.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf
+23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYf
+oRSJoZ+n" crossorigin="anonymous"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVv
+oxMfooAo" crossorigin="anonymous"></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.j
+s"
+integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3
+Og8ifwB6" crossorigin="anonymous"></script>
+<style type="text/css">
+#header{
+height: 25%;
+width: 200%;
+top: 50%;
+background-color: brown;
+position: center;
+color: white;
+}
+#left_side{
+height: 75%;
+width: 15%;
+top: 20%;
+position: fixed;
+left:30px;
+}
+#right_side{
+position: relative;
+left: 650px;
+bottom:-150px;
+width: 1100px;
+height: 700px;
+border: 3px solid brown;
+background-color:#F5F5DC;
+}
+</style>
+<!-- <?php
+session_start();
+$connection = mysqli_connect("localhost","root","");
+$db = mysqli_select_db($connection,"ums");
+?> -->
+<body style="background-color:#DEB887;">
+<div id="header" style="color:white;font-size:50px;">
+<center><strong>UNIVERSITY MANAGEMENT SYSTEM
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&e
+msp;&emsp;</strong>
+<a href="logout.php">LOGOUT</a><br>
+Faculty Dashboard
+</center>
+</div>
+<div id="left_side"><br><br><br>
+<form action="" method="post">
+<table>
+<tr>
+<td>
+<input
+style="background-color:brown;color:whitesmoke;font-size:40px;"
+type="submit" name="edit_student_detail" value="Edit Student
+marks"><br><br>
+</td>
+</tr>
+<tr>
+<td>
+<input
+style="background-color:brown;color:whitesmoke;font-size:38px;"
+type="submit" name="edit_student_detail" value="Edit Student attendance">
+</td>
+</tr>
+</table>
+</form>
+</div>
+<div id="right_side"><br><br><center>
+<div id="demo">
+<!-- <?php
+if(isset($_POST['edit_student_detail']))
+{
+}
+?> --> -->
+<center>
+<form style="color:brown;" action="" method="post">
+Enter Roll No:
+<input style="background-color:brown;" type="text" name="roll_no">
+<input style="background-color:brown;color:white;" type="submit"
+name="search_by_roll_no_for_edit" value="Edit">
+</form>
+</center>
+<!-- <?php
+if(isset($_POST['search_by_roll_no_for_edit']))
+{
+$query = "select * from students where roll_no = '$_POST[roll_no]'";
+$query_run = mysqli_query($connection,$query);
+while($row = mysqli_fetch_assoc($query_run)){
+?> -->
+<form action="admin_edit_student.php" method="post">
+<table>
+<tr>
+<td>
+<b>Roll No:&nbsp;&nbsp;</b></td>
+<td>
+<input type="text" name="roll_no" value="<?php echo $row['roll_no'];?>" >
+</td>
+</td>
+</tr>
+<tr>
+<td>
+<b>Name:&nbsp;&nbsp;</b></td>
+<td>
+<input type="text" name="name" value="<?php echo $row['name'];?>" >
+</td>
+</td>
+</tr>
+<tr>
+<td>
+<b>Fathers Name:&nbsp;&nbsp;</b></td>
+<td><input type="text" name="father_name" value="<?php echo
+$row['father_name'];?>" >
+</td>
+</td>
+</tr>
+<tr>
+<td>
+<b>Attendance:&nbsp;&nbsp;</b></td>
+<td>
+<input type="text" name="attendance" value="<?php echo
+$row['attendance'];?>" >
+</td>
+</td>
+</tr>
+<tr>
+<td>
+<b>Marks:&nbsp;&nbsp;</b></td>
+<td>
+<input type="text" name="marks" value="<?php echo $row['marks'];?>" >
+</td>
+</td>
+</tr>
+<tr>
+<td>
+<b>Email:&nbsp;&nbsp;</b></td>
+<td>
+<input type="text" name="email" value="<?php echo $row['email'];?>" >
+</td>
+</td>
+</tr>
+<br><br><tr>
+<td></td>
+<td><input type="submit" name="edit" value="Save">
+</td>
+</tr>
+</table>
+</form>
+<!-- <?php
+}
+}
+?> -->
